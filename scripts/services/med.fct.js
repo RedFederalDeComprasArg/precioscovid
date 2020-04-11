@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('app.services').factory('medService', function gameService($http, apiConstants, userService) {
-  var gameData = {
-    
+angular.module('app.services').factory('medService', function gameService($http) {
+  var medData = {
+    items: []
   };
+  
 
   
-  return gameData;
+  return medData;
 });
