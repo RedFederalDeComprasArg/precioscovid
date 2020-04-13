@@ -29,9 +29,8 @@ angular
                         data.forEach(element => {
                             element.precio_Unitario_PESOS = formatNumber(parseFloat(element.precio_Unitario_PESOS.replace(/,/g, ".")));	
                         });
-                        console.log(data);
+                        
                         $scope.medService.items = data;
-
                         $scope.loading = false;
                     });
                 })

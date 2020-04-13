@@ -8,16 +8,47 @@
 						<div class="card-body">
 							<form>
 								<div class="row">
-								<div class="col-sm-8">
-									<input class="input-group input-group-lg form-control" type="search" placeholder="Escribí el texto para filtrar " ng-model="search">
-								</div>
-								<div class="col-sm-4">
-									<select class="custom-select">
-										<option selected="">Todas las provincias</option>
-									</select>
-								</div>
+									<div class="col-sm-8">
+										<input class="input-group input-group-lg form-control" type="search" placeholder="Escribí el texto para filtrar " ng-model="search">
+									</div>
+									<div class="col-sm-4">
+										<select class="custom-select">
+											<option selected="">Todas las provincias</option>
+										</select>
+									</div>
 								</div>
 							</form>
+							<hr>
+							<div class="row">
+								<div class="col-sm-2">
+									<a href="#" class="badge badge-info">Medicamentos</a>
+									<a href="#" class="badge badge-info">Insumos Hospitalarios</a>
+									<a href="#" class="badge badge-info">Otros </a>
+								</div>
+								<div class="col-sm-10">
+									<h6>Filtrar por CATEGORÍA:</h6>
+										<a href="#" class="badge badge-primary">ANTIBIOTICOS</a>
+										<a href="#" class="badge badge-primary">ANALGESICOS</a>
+										<a href="#" class="badge badge-primary">ALCOHOL </a>
+										<a href="#" class="badge badge-primary">BIOSEGURIDAD</a>
+										<a href="#" class="badge badge-primary">GUANTES </a>
+										<a href="#" class="badge badge-primary">GASA  </a>
+										<a href="#" class="badge badge-primary">TELA ADHESIVA  </a>
+										<a href="#" class="badge badge-primary">AGUJA HIPODERMICA</a>
+										<a href="#" class="badge badge-primary">GUÍA ESTERIL</a>
+										<a href="#" class="badge badge-primary">JERINGAS</a>
+										<a href="#" class="badge badge-primary">TERMOMETRO</a>
+										<a href="#" class="badge badge-primary">PLACA RADIOGRAFICA</a>
+										<a href="#" class="badge badge-primary">BARBIJOS</a>
+										<a href="#" class="badge badge-primary">CAMISOLIN/BLUSON</a>
+										<a href="#" class="badge badge-primary">MAMELUCO</a>
+										<a href="#" class="badge badge-primary">ANTIPARRAS</a>
+										<a href="#" class="badge badge-primary">BOTAS</a>
+										<a href="#" class="badge badge-primary">OTROS</a>
+								</div>
+							</div>
+
+
 						
 						</div>
 						<div class="card-footer">Total de elementos: {{medService.items.length}}</div>
@@ -31,19 +62,23 @@
 				<thead>
 				  <tr>
 					<th scope="col">Área</th>
+					<th scope="col">Pcia</th>
 					<th scope="col">Descripción</th>
 					<th scope="col">Presentacion</th>
 					<th scope="col" class="text-right">Cantidad</th>
 					<th scope="col" class="text-right">Precio</th>
+					<th scope="col"></th>
 				  </tr>
 				</thead>
 				<tbody>
 				  <tr ng-repeat="med in medService.items | filter:search">
 					<th scope="row" class="align-middle">{{med.area}}</th>
+					<td class="align-middle">{{med.provincia}}</td>
 					<td class="align-middle">{{med.descripcion}}</td>
 					<td class="align-middle">{{med.presentacion}}</td>
 					<td class="text-right align-middle">{{med.cantidad}}</td>
 					<td class="text-right align-middle">{{med.precio_Unitario_PESOS}}</td>
+					<td class="text-right align-middle"><a href="#"><i class="fas fa-info-circle"></i></a></td>
 				  </tr>
 				</tbody>
 			  </table>
