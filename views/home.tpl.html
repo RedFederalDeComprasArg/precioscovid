@@ -62,7 +62,7 @@
 				<tbody>
 
 
-				  <tr ng-hide="filtered == 0" ng-repeat="med in filtered = (medService.items  | filter: filterFn)">
+				  <tr ng-hide="filtered == 0" ng-repeat="med in filtered = (medService.items  | filter: filterFn | filter: search)">
 					<th scope="row" class="align-middle">{{med.area}}</th>
 					<td class="align-middle">{{med.provincia}}</td>
 					<td class="align-middle">{{med.descripcion}}</td>

@@ -70,6 +70,7 @@ angular
             if (selected && $scope.categoriaFilter.length > 0){
                 selected = $scope.categoriaFilter.indexOf(med.categoria) > -1;
             }
+            
 
             return selected;
         }
