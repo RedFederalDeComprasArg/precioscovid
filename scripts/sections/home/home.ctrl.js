@@ -1,19 +1,4 @@
 
-var ES = d3.formatDefaultLocale({
-    "decimal": ",",
-    "thousands": ".",
-    "grouping": [3],
-    "currency": ["$", ""],
-    "dateTime": "%a %b %e %X %Y",
-    "date": "%d/%m/%Y",
-    "time": "%H:%M:%S",
-    "periods": ["AM", "PM"],
-    "days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-    "shortDays": ["Dom", "Lun", "Mar", "Mi", "Jue", "Vie", "Sab"],
-    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-    "shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
-});
-var formatNumber = ES.format("($.2f")
 
 
 'use strict';
@@ -22,10 +7,92 @@ angular
     .controller('HomeController', function($scope, medService) {
         $scope.medService = medService;
         $scope.loading = true;
+        $scope.areaFilter = [];
+        $scope.categoriaFilter = [];
+
+
+        $scope.addFilterCategory = function(cat){
+             if (cat.selected){
+                cat.selected = false;
+                $scope.categoriaFilter = [];
+                 $scope.medService.categorias.map(function(c){
+                   c.selectedClass = " badge-info";
+                   c.selected = false;
+                });
+            }
+            else if ($scope.categoriaFilter.indexOf(cat.key) == -1){
+                $scope.medService.categorias.map(function(c){
+                   c.selectedClass = " badge-light";
+                   c.selected = false;
+                })
+                cat.selectedClass = " badge-info  ";
+                cat.selected = true;
+                $scope.categoriaFilter = [];
+                $scope.categoriaFilter.push(cat.key);     
+            }
+           
+
+        }
+        $scope.addFilterArea = function(area){
+            
+            if (area.selected){
+                area.selected = false;
+                $scope.areaFilter = [];
+                 $scope.medService.areas.map(function(a){
+                   a.selectedClass = " badge-primary";
+                   a.selected = false;
+                });
+            }
+            else if ($scope.areaFilter.indexOf(area.key) == -1){
+                $scope.medService.areas.map(function(a){
+                   a.selectedClass = " badge-light";
+                   a.selected = false;
+                })
+                area.selected = true;
+               area.selectedClass = " badge-primary";
+               $scope.areaFilter = [];
+               $scope.areaFilter.push(area.key);     
+            }
+           
+
+        }
+
+        $scope.filterFn = function(med){
+            var selected = true;
+
+            if ($scope.selectProvincia && $scope.selectProvincia !== "Todas las provincias" ){
+               selected = med.provincia === $scope.selectProvincia;    
+            }
+            if (selected && $scope.areaFilter.length > 0){
+                selected = $scope.areaFilter.indexOf(med.area) > -1;
+            }
+            if (selected && $scope.categoriaFilter.length > 0){
+                selected = $scope.categoriaFilter.indexOf(med.categoria) > -1;
+            }
+
+            return selected;
+        }
         d3.csv('data/medicamientos.csv')
                 .then(function(data) {
                     $scope.$apply(function(){
                         data = data.filter(function(d) { return d.area});
+
+                       $scope.medService.provincias = d3.nest()
+                          .key(function(d) { return d.provincia; })
+                          .entries(data);
+                      $scope.medService.areas =  d3.nest()
+                          .key(function(d) { return d.area; })
+                          .entries(data);
+                        $scope.medService.areas.map(function(a){
+                           a.selectedClass = " badge-primary";
+                        })
+                       $scope.medService.categorias =  d3.nest()
+                          .key(function(d) { return d.categoria; })
+                          .entries(data);
+                        $scope.medService.categorias.map(function(c){
+                           c.selectedClass = " badge-info";
+                        })
+                        // console.log(provincias, areas, categorias);
                         data.forEach(element => {
                             element.precio_Unitario_PESOS = formatNumber(parseFloat(element.precio_Unitario_PESOS.replace(/,/g, ".")));	
                         });

@@ -9,11 +9,14 @@
 							<form>
 								<div class="row">
 									<div class="col-sm-8">
-										<input class="input-group input-group-lg form-control" type="search" placeholder="Escribí el texto para filtrar " ng-model="search">
+										<input class="input-group input-group-lg form-control"
+										 type="search" placeholder="Escribí el texto para filtrar " ng-model="search">
 									</div>
 									<div class="col-sm-4">
-										<select class="custom-select">
-											<option selected="">Todas las provincias</option>
+										<select ng-model="selectProvincia"class="custom-select">
+											<option ng-repeat="p in medService.provincias">{{p.key}}</option>
+											<option selected="selected" value>Todas las provincias</option>
+											
 										</select>
 									</div>
 								</div>
@@ -21,37 +24,23 @@
 							<hr>
 							<div class="row">
 								<div class="col-sm-2">
-									<a href="#" class="badge badge-info">Medicamentos</a>
-									<a href="#" class="badge badge-info">Insumos Hospitalarios</a>
-									<a href="#" class="badge badge-info">Otros </a>
+									<div ng-repeat="area in medService.areas">
+										<a href="" ng-click="addFilterArea(area)" class="badge {{area.selectedClass}}">{{area.key}}</a>
+									</div>
 								</div>
 								<div class="col-sm-10">
 									<h6>Filtrar por CATEGORÍA:</h6>
-										<a href="#" class="badge badge-primary">ANTIBIOTICOS</a>
-										<a href="#" class="badge badge-primary">ANALGESICOS</a>
-										<a href="#" class="badge badge-primary">ALCOHOL </a>
-										<a href="#" class="badge badge-primary">BIOSEGURIDAD</a>
-										<a href="#" class="badge badge-primary">GUANTES </a>
-										<a href="#" class="badge badge-primary">GASA  </a>
-										<a href="#" class="badge badge-primary">TELA ADHESIVA  </a>
-										<a href="#" class="badge badge-primary">AGUJA HIPODERMICA</a>
-										<a href="#" class="badge badge-primary">GUÍA ESTERIL</a>
-										<a href="#" class="badge badge-primary">JERINGAS</a>
-										<a href="#" class="badge badge-primary">TERMOMETRO</a>
-										<a href="#" class="badge badge-primary">PLACA RADIOGRAFICA</a>
-										<a href="#" class="badge badge-primary">BARBIJOS</a>
-										<a href="#" class="badge badge-primary">CAMISOLIN/BLUSON</a>
-										<a href="#" class="badge badge-primary">MAMELUCO</a>
-										<a href="#" class="badge badge-primary">ANTIPARRAS</a>
-										<a href="#" class="badge badge-primary">BOTAS</a>
-										<a href="#" class="badge badge-primary">OTROS</a>
+									<div ng-repeat="categoria in medService.categorias">
+										<a href="" ng-click="addFilterCategory(categoria)" class="badge {{categoria.selectedClass}}">{{categoria.key}}</a>
+									</div>
+										
 								</div>
 							</div>
 
 
 						
 						</div>
-						<div class="card-footer">Total de elementos: {{medService.items.length}}</div>
+						<div class="card-footer">Total de elementos: {{filtered.length}}</div>
 					</div>
 				</div>
 
@@ -60,7 +49,7 @@
 	<div class="table-responsive-md">
 			<table class="table table-hover table-sm">
 				<thead>
-				  <tr>
+				  <tr ng-hide="filtered == 0">
 					<th scope="col">Área</th>
 					<th scope="col">Pcia</th>
 					<th scope="col">Descripción</th>
@@ -71,7 +60,9 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr ng-repeat="med in medService.items | filter:search">
+
+
+				  <tr ng-hide="filtered == 0" ng-repeat="med in filtered = (medService.items  | filter: filterFn)">
 					<th scope="row" class="align-middle">{{med.area}}</th>
 					<td class="align-middle">{{med.provincia}}</td>
 					<td class="align-middle">{{med.descripcion}}</td>
@@ -80,6 +71,10 @@
 					<td class="text-right align-middle">{{med.precio_Unitario_PESOS}}</td>
 					<td class="text-right align-middle"><a href="#"><i class="fas fa-info-circle"></i></a></td>
 				  </tr>
+				  <div ng-show="filtered == 0">
+					 	<h3> No hay resultados para el filtro elegido</h3>
+					 	<p> Intentá con otros valores </p>
+					 </div>
 				</tbody>
 			  </table>
 	</div>
