@@ -9,8 +9,9 @@ angular
         $scope.loading = true;
         $scope.areaFilter = [];
         $scope.categoriaFilter = [];
+        $scope.selectProvincia = "";
 
-
+        var TLP_TEXT= "(Todas las provincias)";
         $scope.addFilterCategory = function(cat){
              if (cat.selected){
                 cat.selected = false;
@@ -60,8 +61,8 @@ angular
         $scope.filterFn = function(med){
             var selected = true;
 
-            if ($scope.selectProvincia && $scope.selectProvincia !== "Todas las provincias" ){
-               selected = med.provincia === $scope.selectProvincia;    
+            if ($scope.selectProvincia.key && $scope.selectProvincia.key!== TLP_TEXT ){
+               selected = med.provincia === $scope.selectProvincia.key;    
             }
             if (selected && $scope.areaFilter.length > 0){
                 selected = $scope.areaFilter.indexOf(med.area) > -1;
@@ -75,11 +76,27 @@ angular
         d3.csv('data/medicamientos.csv')
                 .then(function(data) {
                     $scope.$apply(function(){
-                        data = data.filter(function(d) { return d.area});
+                        data = data.filter(function(d) { return d.area && d.provincia != ''; });
 
-                       $scope.medService.provincias = d3.nest()
+
+
+
+                       $scope.medService.provincias = []
+                       var TLP = {
+                           key: TLP_TEXT,
+                           selected: true,
+                       };
+                       $scope.medService.provincias.push(TLP)
+
+                       var ps = d3.nest()
                           .key(function(d) { return d.provincia; })
                           .entries(data);
+                        $scope.medService.provincias.map(function(a){
+                            a.selected = false;
+                        });
+                      $scope.medService.provincias = $scope.medService.provincias.concat(ps);
+                      $scope.selectProvincia   = TLP;                       
+
                       $scope.medService.areas =  d3.nest()
                           .key(function(d) { return d.area; })
                           .entries(data);

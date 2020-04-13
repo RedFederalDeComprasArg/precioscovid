@@ -13,11 +13,11 @@
 										 type="search" placeholder="Escribí el texto para filtrar " ng-model="search">
 									</div>
 									<div class="col-sm-4">
-										<select ng-model="selectProvincia"class="custom-select">
-											<option ng-repeat="p in medService.provincias">{{p.key}}</option>
-											<option selected="selected" value>Todas las provincias</option>
-											
-										</select>
+										
+										<select class="custom-select"
+									        ng-model="selectProvincia"
+									        ng-options="option.key for option in medService.provincias">
+									</select>
 									</div>
 								</div>
 							</form>
