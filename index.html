@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BID Precios</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <!--     <script src="//d3js.org/d3.v3.min.js"></script>
- -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.1/d3.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="styles/normalize.css" />
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> 
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
+
+  
   <!-- Load c3.css -->
   <link href="styles/c3.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/fonts/styles.css" />
@@ -25,8 +26,46 @@
    <div id="container">
    
         <div id="header">
-            <div class="container header-container">
-                <h1> Header</h1>
+             
+          <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="color:white">
+            PRECIOS DE REFERENCIA COVID-19
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">Sumar datos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">Acerca del proyecto</a>
+                </li>
+            </ul>
+              
+            </div>
+          </nav>
+
+          <div class="jumbotron jumbotron-fluid bg-white">
+            <div class="container">
+              <div class="row ">
+                <div class="col-sm-6">
+                  <h1 class="display-6">Precios de referencia COVID-19</h1>
+                  <h3> Red Federal de compras de Argentina</h1>
+                  <p class="lead">Información sobre insumos críticos y estratégicos relacionados al coronavirus, compartida por las jurisdicciones que integran la Red Federal de Contrataciones Gubernamentales de la Argentina.
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <div class="mx-auto" style="width: 200px;">
+                    <img src="images/logoBID.jpg" width="200px"><br>
+                    <img src="images/logoRED.jpg" width="200px">
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div id="main">
           <div class="container">
@@ -34,33 +73,51 @@
 
             </ng-view>
           </div>
-        </div>
-        <div id="footer">
-            <div class="container" id="footer-container">
-                <h2> Footer</h2>
-                <a href="#!/terms" class="text">T&eacute;rminos y Condiciones </a>
-            </div>
-        </div>
+        </div><br><Br>
+          
+         
+<!-- Footer -->
+<section id="footer  bg-light" style="
+    background-color: #eee;
+    border-top: 1px solid #aaa;
+    padding: 40px 0px 80px 0px;
+">
+		<div class="container ">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-dark">
+          <h4>ACLARACIÓN:</h4>
+          <p>La presente información es meramente referencial y solamente para uso interno de la Red Federal y/o propósitos académicos. Los datos fueron obtenidos y proporcionados por las diferentes jurisdicciones, en diferentes espacios de tiempo por lo que no necesariamente representan valores exactos de los insumos en la actualidad. Para información actual sobre de datos de cada jurisdicción por favor visitar los portales de cada una de ellas.
+            </p>
+          </div>
+				</hr>
+			</div>	
+		</div>
+  </section>
+   
   
   </div>
 </body>
 
 
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://d3js.org/d3-array.v1.min.js"></script>
-  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-  <script src="  https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.1/d3-annotation.min.js"></script>
+  <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+  <!-- <script src="https://d3js.org/d3-array.v1.min.js"></script> -->
+  <!-- <script src="https://d3js.org/d3-geo.v1.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script> -->
+  <!-- <script src="  https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.1/d3-annotation.min.js"></script> -->
 
-  <script src="scripts/c3.min.js"></script>
+  <!-- <script src="scripts/c3.min.js"></script> -->
 
-  <script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+  <!-- <script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script> -->
+    
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  
 
-  <script src='scripts/wow.min.js'></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  <!-- <script src='scripts/wow.min.js'></script> -->
   
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -79,13 +136,15 @@
     <!-- ======================================================================= -->
     
   <script type="text/javascript" src="scripts/main.js"></script>
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137222816-1"></script>
+  
+
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137222816-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-137222816-1');
-    </script>
+    </script> -->
 
 </html>
