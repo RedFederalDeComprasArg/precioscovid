@@ -1,0 +1,20 @@
+.badge{
+    margin-right: 3px;
+    white-space: normal;
+}
+
+.badge-info {
+    color: #fff;
+    background-color: #6CC3D5;
+    border: 1px solid #6CC3D5;
+}
+
+.badge-unselected {
+    color: #444;
+    background-color: #f8f9fa;
+    border: 1px solid silver;
+}
+
+.badge-container{
+    line-height: 1.4;
+}

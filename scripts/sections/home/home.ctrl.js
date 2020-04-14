@@ -23,7 +23,7 @@ angular
             }
             else if ($scope.categoriaFilter.indexOf(cat.key) == -1){
                 $scope.medService.categorias.map(function(c){
-                   c.selectedClass = " badge-light";
+                   c.selectedClass = " badge-unselected";
                    c.selected = false;
                 })
                 cat.selectedClass = " badge-info  ";
