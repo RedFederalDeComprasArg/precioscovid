@@ -24,47 +24,76 @@ angular
 
         var TLP_TEXT= "(Todas las provincias)";
         $scope.addFilterCategory = function(cat){
-             if (cat.selected){
-                cat.selected = false;
-                $scope.categoriaFilter = [];
-                 $scope.medService.categorias.map(function(c){
-                   c.selectedClass = " badge-info";
-                   c.selected = false;
+            if (cat.selected){ 
+                $scope.categoriaFilter = $scope.categoriaFilter.filter(function(cf){
+                  return cf != cat.key;
                 });
+                if ($scope.categoriaFilter.length == 0){
+                    $scope.medService.categorias.map(function(c){
+                     c.selectedClass = "  badge-info";
+                     c.selected = false;
+                   })  
+                }else {
+                  $scope.medService.categorias.map(function(c){
+                     if (c.key == cat.key){
+                       c.selectedClass = " badge-unselected";
+                       c.selected = false;
+                     }
+                  })  
+                }
+
             }
             else if ($scope.categoriaFilter.indexOf(cat.key) == -1){
-                $scope.medService.categorias.map(function(c){
-                   c.selectedClass = " badge-unselected";
-                   c.selected = false;
-                })
+                if ($scope.categoriaFilter.length == 0){
+                    $scope.medService.categorias.map(function(c){
+                     c.selectedClass = " badge-unselected";
+                     c.selected = false;
+                  })  
+                }
+                
                 cat.selectedClass = " badge-info  ";
                 cat.selected = true;
-                $scope.categoriaFilter = [];
+                // $scope.categoriaFilter = [];
                 $scope.categoriaFilter.push(cat.key);     
             }
            
 
         }
-        $scope.addFilterArea = function(area){
-            
-            if (area.selected){
-                area.selected = false;
-                $scope.areaFilter = [];
-                 $scope.medService.areas.map(function(a){
-                   a.selectedClass = " badge-primary";
-                   a.selected = false;
+        $scope.addFilterArea = function(cat){
+            if (cat.selected){ 
+                $scope.areaFilter = $scope.areaFilter.filter(function(cf){
+                  return cf != cat.key;
                 });
+                if ($scope.areaFilter.length == 0){
+                    $scope.medService.areas.map(function(c){
+                     c.selectedClass = "  badge-primary";
+                     c.selected = false;
+                   })  
+                }else {
+                  $scope.medService.areas.map(function(c){
+                     if (c.key == cat.key){
+                       c.selectedClass = " badge-unselected";
+                       c.selected = false;
+                     }
+                  })  
+                }
+
             }
-            else if ($scope.areaFilter.indexOf(area.key) == -1){
-                $scope.medService.areas.map(function(a){
-                   a.selectedClass = " badge-light";
-                   a.selected = false;
-                })
-                area.selected = true;
-               area.selectedClass = " badge-primary";
-               $scope.areaFilter = [];
-               $scope.areaFilter.push(area.key);     
+            else if ($scope.areaFilter.indexOf(cat.key) == -1){
+                if ($scope.areaFilter.length == 0){
+                    $scope.medService.areas.map(function(c){
+                     c.selectedClass = " badge-unselected";
+                     c.selected = false;
+                  })  
+                }
+                
+                cat.selectedClass = " badge-primary  ";
+                cat.selected = true;
+                // $scope.categoriaFilter = [];
+                $scope.areaFilter.push(cat.key);     
             }
+           
+
            
 
         }
