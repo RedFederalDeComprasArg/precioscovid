@@ -48,19 +48,19 @@
 			<table class="table table-hover table-sm">
 				<thead>
 				  <tr ng-hide="filtered == 0">
-					<th scope="col">Área</th>
-					<th scope="col">Distrito</th>
-					<th scope="col">Descripción</th>
-					<th scope="col">Presentacion</th>
-					<th scope="col" class="text-right">Cantidad</th>
-					<th scope="col" class="text-right">Precio</th>
+					<th scope="col" ng-click="sortBy('area')"><a href="">Área</a></th>
+					<th scope="col" ng-click="sortBy('provincia')"><a href=""> Distrito</a></th>
+					<th scope="col" ng-click="sortBy('descripcion')"><a href=""> Descripción</a></th>
+					<th scope="col" ng-click="sortBy('presentacion')"><a href=""> Presentacion</a></th>
+					<th scope="col"  ng-click="sortBy('cantidad')" class="text-right"><a href=""> Cantidad</a></th>
+					<th scope="col" ng-click="sortBy('precio')" class="text-right"><a href=""> Precio</a></th>
 					<th scope="col"></th>
 				  </tr>
 				</thead>
 				<tbody>
 
 
-				  <tr ng-hide="filtered == 0" ng-repeat="med in filtered = (medService.items  | filter: filterFn | filter: search)">
+				  <tr ng-hide="filtered == 0" ng-repeat="med in filtered = (medService.items  | filter: filterFn | filter: search | orderBy:propertyName:reverse)">
 					<th scope="row" class="align-middle">{{med.area}}</th>
 					<td class="align-middle">{{med.provincia}}</td>
 					<td class="align-middle">{{med.descripcion}}</td>

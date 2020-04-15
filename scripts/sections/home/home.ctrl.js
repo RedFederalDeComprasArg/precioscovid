@@ -13,6 +13,15 @@ angular
         $scope.showDetail=function(med){
           $scope.selected = med;
         }
+
+        $scope.propertyName = 'descripcion';
+        $scope.reverse = true;
+
+          $scope.sortBy = function(propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+          };
+
         var TLP_TEXT= "(Todas las provincias)";
         $scope.addFilterCategory = function(cat){
              if (cat.selected){
