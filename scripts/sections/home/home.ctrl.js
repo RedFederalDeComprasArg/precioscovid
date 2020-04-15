@@ -10,7 +10,9 @@ angular
         $scope.areaFilter = [];
         $scope.categoriaFilter = [];
         $scope.selectProvincia = "";
-
+        $scope.showDetail=function(med){
+          $scope.selected = med;
+        }
         var TLP_TEXT= "(Todas las provincias)";
         $scope.addFilterCategory = function(cat){
              if (cat.selected){

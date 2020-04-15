@@ -1,4 +1,4 @@
-area,categoria,descripcion,provincia,presentacion,marca,observaciones,cantidad,precio_Unitario_PESOS,certificado,codigo,proveedor,cuit,fecha,N° OC / Expte
+area,categoria,descripcion,provincia,presentacion,marca,observaciones,cantidad,precio_Unitario_PESOS,certificado,codigo,proveedor,cuit,fecha,oc_ex
 Medicamentos,OTROS,IBUPROFENO 400 MG,Salta,,IBUPROFENO KLONAL-400mg Comp. x 20,IBUPROFENO 400 MG,,"0,9072815534",,,,,2/20/2020,
 Medicamentos,OTROS,PARACETAMOL,Mendoza,X 500 MG,VENT 3,PARACETAMOL VENT3 500 MG COMP - CERT. Nº : 41806 - ENVASE X : 20 - VENT3,120000,"1,36",ANMAT,,,,,
 Medicamentos,OTROS,IBUPROFENO 400 MG,Mendoza,COMPRIMIDO,PFIZER,IBUPIRAC 400MG COMP - CERT. Nº : 39587 - ENVASE X : 50 - PFIZER,90000,"1,82",ANMAT,,,,,

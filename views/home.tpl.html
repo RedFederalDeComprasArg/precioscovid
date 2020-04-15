@@ -67,7 +67,7 @@
 					<td class="align-middle">{{med.presentacion}}</td>
 					<td class="text-right align-middle">{{med.cantidad}}</td>
 					<td class="text-right align-middle">{{med.precio_Unitario_PESOS}}</td>
-					<td class="text-right align-middle"><button  type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-info-circle"></i></button></td>
+					<td class="text-right align-middle"><button  type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" ng-click="showDetail(med)" data-target="#exampleModalCenter"><i class="fas fa-info-circle"></i></button></td>
 				  </tr>
 				  <div ng-show="filtered == 0">
 					 	<h3> No hay resultados para el filtro elegido</h3>
@@ -84,27 +84,27 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalCenterTitle">Detalle: IBUPROFENO 400 MG</h5>
+		  <h5 class="modal-title" id="exampleModalCenterTitle">{{selected.descripcion}}</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
 		</div>
 		<div class="modal-body">
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><b>area:</b> Insumos Hospitalarios</li>
-				<li class="list-group-item"><b>provincia:</b> NACION</li>
-				<li class="list-group-item"><b>categoria:</b> ALCOHOL </li>
-				<li class="list-group-item"><b>descripcion:</b> ALCOHOL USO MEDICINAL; PUREZA: 70% GEL</li>
-				<li class="list-group-item"><b>presentacion:</b> X 500 ML</li>
-				<li class="list-group-item"><b>marca:</b> SANIGEL</li>
-				<li class="list-group-item"><b>observaciones:</b> CON DOSIFICADOR- EN CAJA DE 12 UNIDADES</li>
-				<li class="list-group-item"><b>cantidad:</b> 48</li>
-				<li class="list-group-item"><b>precio_Unitario_PESOS:</b> 417,45</li>
+				<li class="list-group-item"><b>area:</b>{{selected.area}}</li>
+				<li class="list-group-item"><b>provincia:</b> {{selected.provincia}}</li>
+				<li class="list-group-item"><b>categoria:</b> {{selected.categoria}} </li>
+				<li class="list-group-item"><b>descripcion:</b> {{selected.descrpicion}}</li>
+				<li class="list-group-item"><b>presentacion:</b> {{selected.presentacion}}</li>
+				<li class="list-group-item"><b>marca:</b> {{selected.marca}}</li>
+				<li class="list-group-item"><b>observaciones:</b> {{selected.observaciones || 'Sin Obsersaciones'}}</li>
+				<li class="list-group-item"><b>cantidad:</b> {{selected.cantidad }}</li>
+				<li class="list-group-item"><b>precio_Unitario_PESOS:</b> {{selected.precio_Unitario_PESOS }}</li>
 				<li class="list-group-item"><b>certificado:</b> </li>
-				<li class="list-group-item"><b>codigo:</b> 2.5.2-711.35</li>
-				<li class="list-group-item"><b>proveedor:</b> DAIKO S.R.L. <b>cuit:</b> 30716400669</li>
-				<li class="list-group-item"><b>fecha:</b> abr.-2020</li>
-				<li class="list-group-item"><b>N° OC / Expte:</b> EX-2020-15222776-   -APN-DGIA#ARA</li>
+				<li class="list-group-item"><b>codigo:</b> {{selected.codigo }}</li>
+				<li class="list-group-item"><b>proveedor:</b> {{selected.proveedor }} <b>cuit:</b> {{selected.cuit }} </li>
+				<li class="list-group-item"><b>fecha:</b>{{selected.fecha }} </li>
+				<li class="list-group-item"><b>N° OC / Expte:</b> {{selected.oc_ex }} </li>
 			</ul>
 		</div>
 		<div class="modal-footer">
