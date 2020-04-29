@@ -114,7 +114,7 @@ angular
 
             return selected;
         }
-        d3.csv('data/medicamientos.csv')
+        d3.csv(url_csv)
                 .then(function(data) {
                     $scope.$apply(function(){
                         data = data.filter(function(d) { return d.area && d.provincia != ''; });
