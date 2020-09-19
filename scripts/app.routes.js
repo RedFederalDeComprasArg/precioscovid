@@ -3,7 +3,7 @@
 angular
 .module('app.routes', ['ngRoute'])
 .config(function config ($routeProvider) {
-        //console.log($routeProvider);
+        console.log($routeProvider);
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.tpl.html',
