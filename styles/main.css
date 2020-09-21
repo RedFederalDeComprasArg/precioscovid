@@ -27,3 +27,7 @@
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+.jumbotron {
+    padding: 4rem 2rem 0rem 2rem;
+}
