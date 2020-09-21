@@ -13,6 +13,10 @@ angular
                 templateUrl: 'views/about.tpl.html',
                 controller: 'AboutController as AboutController',
             })
+            .when('/info', {
+                templateUrl: 'views/info.tpl.html',
+                controller: 'InfoController as InfoController',
+            })
             .otherwise({
                 redirectTo: '/',
             });
