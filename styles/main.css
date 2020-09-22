@@ -31,3 +31,20 @@
 .jumbotron {
     padding: 4rem 2rem 0rem 2rem;
 }
+
+.card-text:last-child {
+    margin-bottom: 0;
+    line-height: 100%;
+    opacity: 0.8;
+}
+
+h5.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+
+p.card-text {
+    margin-bottom: 0;
+}
