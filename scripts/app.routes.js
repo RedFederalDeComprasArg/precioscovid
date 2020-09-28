@@ -18,7 +18,7 @@ angular
                 controller: 'NormativasController as NormativasController',
             })
             .when('/portales', {
-                templateUrl: 'views/paises.tpl.html',
+                templateUrl: 'views/portales.tpl.html',
                 controller: 'PortalesController as PortalesController',
             })
             .otherwise({
