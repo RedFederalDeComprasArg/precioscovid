@@ -13,9 +13,13 @@ angular
                 templateUrl: 'views/about.tpl.html',
                 controller: 'AboutController as AboutController',
             })
-            .when('/info', {
-                templateUrl: 'views/info.tpl.html',
-                controller: 'InfoController as InfoController',
+            .when('/normativas', {
+                templateUrl: 'views/normativas.tpl.html',
+                controller: 'NormativasController as NormativasController',
+            })
+            .when('/portales', {
+                templateUrl: 'views/paises.tpl.html',
+                controller: 'PortalesController as PortalesController',
             })
             .otherwise({
                 redirectTo: '/',

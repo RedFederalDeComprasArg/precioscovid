@@ -1,6 +1,6 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('InfoController', function($scope, medService) {
+    .controller('PortalesController', function($scope, medService) {
         $scope.medService = medService;
     });
