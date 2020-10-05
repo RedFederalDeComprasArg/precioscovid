@@ -48,3 +48,17 @@ h5.card-title {
 p.card-text {
     margin-bottom: 0;
 }
+
+
+@media (min-width: 576px){
+    .card-deck .card {
+        display: flex;
+        flex: 1 0 0%;
+        flex-direction: column;
+        margin-right: 15px;
+        margin-bottom: 25px;
+        margin-left: 15px;
+        min-width: 30%;
+    }
+
+}
