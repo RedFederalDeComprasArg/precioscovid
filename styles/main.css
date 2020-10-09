@@ -62,3 +62,7 @@ p.card-text {
     }
 
 }
+
+.lista li{
+    line-height: 2rem;
+}
